@@ -39,8 +39,8 @@ export default class TodoBox extends React.Component {
             <div key={uniqueId("record_")}>
               <Item
                 task={text}
-                onRemove={onRemove(id)}
-                onToggleState={onToggleState(id)}
+                onRemove={nRemove={() => onRemove(id)}}
+                onToggleState={() => onToggleState(id)}
                 isCompleted={isCompleted}
               />
               <button
