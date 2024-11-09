@@ -2,7 +2,7 @@ import React from "react";
 
 export default class Item extends React.Component {
   render() {
-    const { task, onRemove } = this.props;
+    const { task, onRemove, onToggleState, isCompleted } = this.props;
     return (
       <div className="row">
         <div className="col-auto">
@@ -14,7 +14,13 @@ export default class Item extends React.Component {
             -
           </button>
         </div>
-        <div className="col">{task}</div>
+        <div
+          className="col"
+          onClick={onToggleState}
+          style={{ cursor: "pointer" }}
+        >
+          {isCompleted ? <s>{task}</s> : task}
+        </div>
       </div>
     );
   }
