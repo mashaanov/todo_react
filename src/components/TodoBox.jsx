@@ -6,13 +6,13 @@ import { PencilSquare } from "react-bootstrap-icons";
 
 export default class TodoBox extends React.Component {
   renderForm() {
-    const { onSubmit, onChange, newTaskText, editingTaskId } = this.props;
+    const { onSubmit, onChangeName, newTaskText, editingTaskId } = this.props;
     return (
       <form onSubmit={onSubmit} className="d-flex align-items-center">
         <div className="me-3 flex-grow-1">
           <input
             type="text"
-            onChange={onChange}
+            onChange={onChangeName}
             value={newTaskText}
             required
             className="form-control"
@@ -27,17 +27,22 @@ export default class TodoBox extends React.Component {
   }
 
   render() {
-    const { tasks, onRemove, onEdit, resetTasks } = this.props;
+    const { tasks, onRemove, onEdit, resetTasks, onToggleState } = this.props;
     return (
       <div>
         <div className="mb-3">{this.renderForm()}</div>
         <button onClick={resetTasks} className="btn btn-primary mb-3">
           Clear All
         </button>
-        {tasks.map(({ text, id }) => {
+        {tasks.map(({ text, id, isCompleted }) => {
           return (
             <div key={uniqueId("record_")}>
-              <Item task={text} onRemove={onRemove(id)} />
+              <Item
+                task={text}
+                onRemove={onRemove(id)}
+                onToggleState={onToggleState(id)}
+                isCompleted={isCompleted}
+              />
               <button
                 onClick={() => onEdit(id, text)}
                 className="btn btn-outline-secondary btn-sm edit-btn"
