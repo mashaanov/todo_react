@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/todo_react/static/css/main.80b05630.css",
-    "main.js": "/todo_react/static/js/main.a4ada62d.js",
+    "main.css": "/todo_react/static/css/main.b3beefab.css",
+    "main.js": "/todo_react/static/js/main.8596a38a.js",
+    "static/media/poppins-regular-webfont.woff2": "/todo_react/static/media/poppins-regular-webfont.e592ad6dcdfe956f15ff.woff2",
     "index.html": "/todo_react/index.html",
-    "main.80b05630.css.map": "/todo_react/static/css/main.80b05630.css.map",
-    "main.a4ada62d.js.map": "/todo_react/static/js/main.a4ada62d.js.map"
+    "main.b3beefab.css.map": "/todo_react/static/css/main.b3beefab.css.map",
+    "main.8596a38a.js.map": "/todo_react/static/js/main.8596a38a.js.map"
   },
   "entrypoints": [
-    "static/css/main.80b05630.css",
-    "static/js/main.a4ada62d.js"
+    "static/css/main.b3beefab.css",
+    "static/js/main.8596a38a.js"
   ]
 }
