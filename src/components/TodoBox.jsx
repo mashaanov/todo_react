@@ -7,7 +7,7 @@ export default class TodoBox extends React.Component {
   renderForm() {
     const { onSubmit, onChangeName, newTaskText, editingTaskId } = this.props;
     return (
-      <form onSubmit={onSubmit} className="d-flex align-items-center">
+      <form onSubmit={onSubmit} className="d-flex align-items-center mb-3">
         <div className="me-3 flex-grow-1">
           <input
             type="text"
@@ -25,34 +25,37 @@ export default class TodoBox extends React.Component {
     );
   }
 
+  renderTasks() {
+    const { tasks, onRemove, onEdit, onToggleState } = this.props;
+    return tasks.map(({ text, id, isCompleted }) => (
+      <div key={id} className="task-item mb-2">
+        <Item
+          task={text}
+          onRemove={() => onRemove(id)}
+          onToggleState={() => onToggleState(id)}
+          isCompleted={isCompleted}
+        />
+        <button
+          onClick={() => onEdit(id, text)}
+          className="btn btn-outline-secondary btn-sm edit-btn ms-2"
+          title="Edit"
+        >
+          <PencilSquare />
+        </button>
+        <hr className="task-divider" />
+      </div>
+    ));
+  }
+
   render() {
-    const { tasks, onRemove, onEdit, resetTasks, onToggleState } = this.props;
+    const { resetTasks } = this.props;
     return (
       <div>
-        <div className="mb-3">{this.renderForm()}</div>
+        {this.renderForm()}
         <button onClick={resetTasks} className="btn btn-primary mb-3">
           Clear All
         </button>
-        {tasks.map(({ text, id, isCompleted }) => {
-          return (
-            <div key={id}>
-              <Item
-                task={text}
-                onRemove={() => onRemove(id)}
-                onToggleState={() => onToggleState(id)}  
-                isCompleted={isCompleted}
-              />
-              <button
-                onClick={() => onEdit(id, text)}
-                className="btn btn-outline-secondary btn-sm edit-btn"
-                title="Edit"
-              >
-                <PencilSquare />
-              </button>
-              <hr />
-            </div>
-          );
-        })}
+        {this.renderTasks()}
       </div>
     );
   }
