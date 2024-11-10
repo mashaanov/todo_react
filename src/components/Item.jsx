@@ -19,7 +19,7 @@ export default class Item extends React.Component {
           onClick={onToggleState}
           style={{ cursor: "pointer" }}
         >
-          {isCompleted ? <s>{task}</s> : task}
+        {isCompleted ? <s>{task}</s> : task}
         </div>
       </div>
     );

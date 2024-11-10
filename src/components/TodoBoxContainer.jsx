@@ -23,7 +23,7 @@ export default class TodoBoxContainer extends React.Component {
     this.setState({ newTaskText: value });
   };
 
-  handleRemoveTask = (id) => () => {
+  handleRemoveTask = (id) => {
     const { tasks } = this.state;
     const filteredTasks = tasks.filter((task) => task.id !== id);
     this.setState({ tasks: filteredTasks });
@@ -36,6 +36,8 @@ export default class TodoBoxContainer extends React.Component {
   handleSubmitForm = (e) => {
     e.preventDefault();
     const { newTaskText, tasks, editingTaskId } = this.state;
+    if (!newTaskText.trim()) return;
+
     if (editingTaskId) {
       const updatedTasks = tasks.map((task) =>
         task.id === editingTaskId ? { ...task, text: newTaskText } : task
@@ -67,11 +69,18 @@ export default class TodoBoxContainer extends React.Component {
     this.setState({ tasks: updatedTasks });
   };
 
+  sortTasks = (tasks) => {
+    return tasks
+      .slice()
+      .sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted));
+  };
+
   render() {
     const { newTaskText, tasks, editingTaskId } = this.state;
+    const sortedTasks = this.sortTasks(tasks);
     return (
       <TodoBox
-        tasks={tasks}
+        tasks={sortedTasks}
         newTaskText={newTaskText}
         onChangeName={this.handleChangeTaskName}
         onSubmit={this.handleSubmitForm}

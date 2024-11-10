@@ -1,7 +1,6 @@
 import React from "react";
 import Item from "./Item.jsx";
 import "../styles/TodoBox.css";
-import { uniqueId } from "lodash";
 import { PencilSquare } from "react-bootstrap-icons";
 
 export default class TodoBox extends React.Component {
@@ -36,11 +35,11 @@ export default class TodoBox extends React.Component {
         </button>
         {tasks.map(({ text, id, isCompleted }) => {
           return (
-            <div key={uniqueId("record_")}>
+            <div key={id}>
               <Item
                 task={text}
-                onRemove={onRemove(id)}
-                onToggleState={onToggleState(id)}
+                onRemove={() => onRemove(id)}
+                onToggleState={() => onToggleState(id)}  
                 isCompleted={isCompleted}
               />
               <button
