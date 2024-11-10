@@ -29,3 +29,11 @@
   .edit-btn {
     margin-left: 3px;
   }
+
+  .task-divider {
+    border: 0;
+    height: 1px;
+    background-color: #c3b9b9;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
