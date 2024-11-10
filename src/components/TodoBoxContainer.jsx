@@ -8,17 +8,6 @@ export default class TodoBoxContainer extends React.Component {
     this.state = { newTaskText: "", tasks: [], editingTaskId: null };
   }
 
-  componentDidMount() {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    this.setState({ tasks: savedTasks });
-  }
-
-  componentDidUpdate(prevState) {
-    if (prevState.tasks !== this.state.tasks) {
-      localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
-    }
-  }
-
   handleChangeTaskName = ({ target: { value } }) => {
     this.setState({ newTaskText: value });
   };
