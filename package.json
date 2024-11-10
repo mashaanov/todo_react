@@ -16,8 +16,10 @@
     "webpack": "^5.96.1",
     "webpack-dev-server": "^5.1.0"
   },
+  "homepage": "https://mashaanov.github.io/todo_react/",
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
