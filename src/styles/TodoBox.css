@@ -1,39 +1,90 @@
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/poppins-regular-webfont.woff2");
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
 .form-control {
-    border: 1px solid #ccc; /* Цвет границы */
-    border-radius: 4px; /* Закругление углов */
-  }
-  
-  .btn-primary {
-    background-color: #007bff; /* Основной цвет кнопки */
-    border: none; /* Без границы */
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .row {
-    margin-bottom: 10px;
-  }
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 10px;
+  transition: border-color 0.3s ease-in-out;
+}
 
-  .input-field {
-    width: 100%;
-  }
-  
-  .col {
-    padding: 10px; 
-    background-color: #e9ecef;
-    border-radius: 4px;
-  }
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
-  .edit-btn {
-    margin-left: 3px;
-  }
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
 
-  .task-divider {
-    border: 0;
-    height: 1px;
-    background-color: #c3b9b9;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.input-field:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.col {
+  padding: 20px;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.col:hover {
+  background-color: #dee2e6;
+}
+
+.edit-btn {
+  margin-left: 5px;
+  background-color: #999895;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.edit-btn:hover {
+  background-color: #8e8d8c;
+  transform: scale(1.05);
+}
+
+.task-divider {
+  border: 0;
+  height: 1px;
+  background-color: #c3b9b9;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
